@@ -1,27 +1,23 @@
 @if ($showPagination)
     @if ($paginationEnabled && $rows->lastPage() > 1)
-        <div class="row">
-            <div class="col-12 col-md-6">
-                {{ $rows->links() }}
-            </div>
+        <div class="">
+            {{ $rows->links() }}
+        </div>
 
-            <div class="col-12 col-md-6 text-center text-md-end text-muted">
-                @lang('Showing')
-                <strong>{{ $rows->count() ? $rows->firstItem() : 0 }}</strong>
-                @lang('to')
-                <strong>{{ $rows->count() ? $rows->lastItem() : 0 }}</strong>
-                @lang('of')
-                <strong>{{ $rows->total() }}</strong>
-                @lang('results')
-            </div>
+        <div class="fw-normal small mt-4 mt-lg-0">
+            @lang('Showing')
+            <strong>{{ $rows->count() ? $rows->firstItem() : 0 }}</strong>
+            @lang('to')
+            <strong>{{ $rows->count() ? $rows->lastItem() : 0 }}</strong>
+            @lang('of')
+            <strong>{{ $rows->total() }}</strong>
+            @lang('results')
         </div>
     @else
-        <div class="row">
-            <div class="col-12 text-muted">
-                @lang('Showing')
-                <strong>{{ $rows->count() }}</strong>
-                @lang('results')
-            </div>
+        <div class="fw-normal small mt-4 mt-lg-0">
+            @lang('Showing')
+            <strong>{{ $rows->count() }}</strong>
+            @lang('results')
         </div>
     @endif
 @endif
