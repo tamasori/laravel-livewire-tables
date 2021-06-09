@@ -6,25 +6,9 @@
         @foreach ($customFilters as $key => $filter)
             <div wire:key="filter-{{ $key }}" class="p-2 col-md-3">
                 @if ($filter->isSelect())
-                    <label for="filter-{{ $key }}" class="mb-2">
-                        {{ $filter->name() }}
-                    </label>
-
-                    <select
-                        onclick="event.stopPropagation();"
-                        wire:model="filters.{{ $key }}"
-                        id="filter-{{ $key }}"
-                        class="form-select"
-                    >
-                        @foreach($filter->options() as $key => $value)
-                            <option value="{{ $key }}">{{ $value }}</option>
-                        @endforeach
-                    </select>
+                    @include('livewire-tables::bootstrap-5.includes.filters.select')
                 @elseif($filter->isTextbox())
-                    <label for="filter-{{ $key }}" class="mb-2">
-                        {{ $filter->name() }}
-                    </label>
-                    <input type="text" wire:key="filter-{{ $key }}" wire:model="filters.{{ $key }}" id="filter-{{ $key }}" class="form-control" >
+                    @include('livewire-tables::bootstrap-5.includes.filters.textbox')
                 @endif
             </div>
         @endforeach

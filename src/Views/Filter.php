@@ -10,6 +10,8 @@ class Filter
     public const TYPE_SELECT = 'select';
     public const TYPE_TEXTBOX = 'textbox';
 
+
+
     /**
      * @var string
      */
@@ -25,6 +27,7 @@ class Filter
      */
     public array $options = [];
 
+    public bool $multiple;
     /**
      * Filter constructor.
      *
@@ -50,9 +53,11 @@ class Filter
      *
      * @return $this
      */
-    public function select(array $options = []): Filter
+    public function select(array $options = [],bool $multiple = false): Filter
     {
         $this->type = self::TYPE_SELECT;
+
+        $this->multiple = $multiple;
 
         $this->options = $options;
 
