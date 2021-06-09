@@ -148,6 +148,9 @@ trait WithFilters
                     }
                 }
             }
+            elseif ($filterDefinitions[$filterName]->isTextbox()){
+                return true;
+            }
 
             return false;
         })->toArray();

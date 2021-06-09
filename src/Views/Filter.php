@@ -8,6 +8,7 @@ namespace Rappasoft\LaravelLivewireTables\Views;
 class Filter
 {
     public const TYPE_SELECT = 'select';
+    public const TYPE_TEXTBOX = 'textbox';
 
     /**
      * @var string
@@ -59,6 +60,17 @@ class Filter
     }
 
     /**
+     *
+     * @return $this
+     */
+    public function textbox(): Filter
+    {
+        $this->type = self::TYPE_TEXTBOX;
+
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function name(): string
@@ -80,5 +92,13 @@ class Filter
     public function isSelect(): bool
     {
         return $this->type === self::TYPE_SELECT;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isTextbox(): bool
+    {
+        return $this->type === self::TYPE_TEXTBOX;
     }
 }
