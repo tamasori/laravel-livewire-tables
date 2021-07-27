@@ -151,6 +151,9 @@ trait WithFilters
             elseif ($filterDefinitions[$filterName]->isTextbox()){
                 return true;
             }
+            elseif ($filterDefinitions[$filterName]->isDate()){
+                return true;
+            }
 
             return false;
         })->toArray();

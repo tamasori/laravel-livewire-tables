@@ -17,9 +17,7 @@
         @include('livewire-tables::bootstrap-5.includes.sorting-pills')
 {{--        @include('livewire-tables::bootstrap-5.includes.filter-pills')--}}
         @if ($showFilterDropdown)
-            <hr>
             @include('livewire-tables::bootstrap-5.includes.filters')
-            <hr>
         @endif
         <div class="d-md-flex justify-content-between mb-3">
 

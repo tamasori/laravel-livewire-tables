@@ -195,6 +195,8 @@ abstract class DataTableComponent extends Component
      */
     public function render()
     {
+        $this->dispatchBrowserEvent('contentChanged');
+
         return view('livewire-tables::'.config('livewire-tables.theme').'.datatable')
             ->with([
                 'columns' => $this->columns(),

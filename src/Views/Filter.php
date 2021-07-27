@@ -9,6 +9,7 @@ class Filter
 {
     public const TYPE_SELECT = 'select';
     public const TYPE_TEXTBOX = 'textbox';
+    public const TYPE_DATE = 'date';
 
 
 
@@ -64,6 +65,14 @@ class Filter
         return $this;
     }
 
+    public function date(array $options = []): Filter
+    {
+        $this->type = self::TYPE_DATE;
+
+        $this->options = $options;
+
+        return $this;
+    }
     /**
      *
      * @return $this
@@ -105,5 +114,9 @@ class Filter
     public function isTextbox(): bool
     {
         return $this->type === self::TYPE_TEXTBOX;
+    }
+    public function isDate(): bool
+    {
+        return $this->type === self::TYPE_DATE;
     }
 }

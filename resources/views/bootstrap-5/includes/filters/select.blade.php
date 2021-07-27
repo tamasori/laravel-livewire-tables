@@ -6,6 +6,7 @@
     onclick="event.stopPropagation();"
     wire:model="filters.{{ $key }}"
     id="filter-{{ $key }}"
+    class="form-select"
     @if($filter->multiple) multiple="multiple" @endif
 >
     @foreach($filter->options() as $key => $value)
